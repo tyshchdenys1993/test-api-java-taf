@@ -1,4 +1,4 @@
-package pojos.response;
+package pojos.response.users;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

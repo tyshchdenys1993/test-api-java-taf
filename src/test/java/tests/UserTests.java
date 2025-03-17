@@ -1,12 +1,14 @@
+package tests;
+
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pojos.request.CreateUserRequestBody;
-import pojos.response.AllUsersResponseBody;
-import pojos.response.CreateUserResponseBody;
-import pojos.response.UserData;
-import pojos.response.UserResponseBody;
+import pojos.response.users.AllUsersResponseBody;
+import pojos.response.users.CreateUserResponseBody;
+import pojos.response.users.UserData;
+import pojos.response.users.UserResponseBody;
 
 import java.time.ZoneId;
 import java.time.ZoneOffset;

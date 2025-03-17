@@ -14,4 +14,7 @@ public interface EndpointsConfig extends WebConfig{
 
     @Key("userByIdEndpoint")
     String getUserByIdEndpoint();
+
+    @Key("allResourcesEndpoint")
+    String getAllResourcesEndpoint();
 }

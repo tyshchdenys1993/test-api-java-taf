@@ -7,4 +7,5 @@ public enum ReqresService {
     REQRES_SERVICE;
 
     private final UserApi userApi = UserApi.getInstance();
+    private final ResourceApi resourceApi = ResourceApi.getInstance();
 }

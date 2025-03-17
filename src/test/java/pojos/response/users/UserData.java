@@ -1,4 +1,4 @@
-package pojos.response;
+package pojos.response.users;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

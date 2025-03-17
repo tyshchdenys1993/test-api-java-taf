@@ -6,10 +6,10 @@ import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 import lombok.NoArgsConstructor;
-import pojos.response.AllUsersResponseBody;
+import pojos.response.users.AllUsersResponseBody;
 import pojos.request.CreateUserRequestBody;
-import pojos.response.CreateUserResponseBody;
-import pojos.response.UserResponseBody;
+import pojos.response.users.CreateUserResponseBody;
+import pojos.response.users.UserResponseBody;
 
 import static lombok.AccessLevel.PRIVATE;
 
