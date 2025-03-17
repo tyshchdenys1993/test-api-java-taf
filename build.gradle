@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitVersion = "5.10.0"
+    assertJVersion = "3.24.2"
+    lombokVersion = "1.18.32"
+    javaFakerVersion = "2.0.1"
+    apacheCommonVersion = "2.13.0"
+    restAssuredVersion = '5.4.0'
+    jacksonDatatypeJsr310 = '2.17.2'
+    ownerVersion = '1.0.4'
+    slf4jVersion = '2.0.17'
+    logbackVersion = '1.5.17'
+}
+
+dependencies {
+    // Lombok
+    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+    testImplementation(
+            // JUnit
+            "org.junit.jupiter:junit-jupiter-api:$junitVersion",
+            "org.junit.jupiter:junit-jupiter-engine:$junitVersion",
+            "org.junit.jupiter:junit-jupiter-params:$junitVersion",
+            "org.junit.platform:junit-platform-runner:1.10.0",
+            "org.junit-pioneer:junit-pioneer:2.1.0",
+
+            // Miscellaneous Testing Tools
+            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "org.assertj:assertj-core:$assertJVersion",
+            "net.datafaker:datafaker:$javaFakerVersion",
+            "commons-io:commons-io:$apacheCommonVersion",
+            "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonDatatypeJsr310",
+            "org.aeonbits.owner:owner:$ownerVersion",
+            "org.slf4j:slf4j-api:$slf4jVersion",
+            "org.slf4j:slf4j-simple:$slf4jVersion",
+            "ch.qos.logback:logback-classic:$logbackVersion"
+    )
+    implementation (
+            "org.slf4j:slf4j-api:$slf4jVersion",
+            "org.slf4j:slf4j-simple:$slf4jVersion"
+    )
+
+}
+
+def env = System.properties['env'] ?: 'qa'
+def tags = System.properties['tags'] ? System.properties['tags'].replace(',', '&') : ''
+
+test {
+    systemProperty "env", env
+    useJUnitPlatform() {
+        if (tags != '') {
+            includeTags tags
+        }
+    }
+}
